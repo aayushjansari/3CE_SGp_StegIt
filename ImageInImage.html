@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>StegIt</title>
+    
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alata&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bangers&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro&amp;display=swap">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Dark-footer-with-social-media-icons.css">
+    <link rel="stylesheet" href="assets/css/Footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/Team-Clean.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        
+</head>
+
+<body style="background: url(&quot;assets/img/wp4472818-8192x8192-wallpapers.jpg&quot;);">
+    <nav class="navbar navbar-dark navbar-expand-md bg-dark bg-gradient" id="app-navbar-1">
+        <div class="container-fluid"><a class="navbar-brand" href="#"><i class="icon ion-ios-infinite" id="brand-logo-1"></i></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-2">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item" style="margin-right: 10px;"><a class="nav-link active" href="index.html" style="font-family: 'Source Code Pro', monospace;">StegIt</a></li>
+                    <li class="nav-item" style="margin-right: 10px;"><a class="nav-link active" href="index.html" style="font-family: 'Source Code Pro', monospace;"> How It Works</a>
+</li>
+                    <li class="nav-item" style="margin-right: 15px;"><a class="nav-link active" href="index.html" style="font-family: 'Source Code Pro', monospace;">The Team</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section style="margin-bottom: 25px;margin-top: 25px;margin-bottom: 40px;">
+        <h1 style="font-family: 'Source Code Pro', monospace;font-weight: bold;color: #dc3545;text-align: center;font-size: 27px;">Image In Image Steganography</h1>
+        
+    </section>
+
+    <section onload="hideImage()">
+        <div class="row" style="padding-bottom: 20px">
+            <div class="col-md-12">
+                <div class="btn-group" style="color:red ;">
+                    <button class="btn btn-primary" id="hide-switch" style="font-family: 'Source Code Pro', monospace;font-weight: bold;color:  #dc3545;background:black;">ENCODE</button>
+                    <button class="btn btn-default" id="unhide-switch" style="font-family: 'Source Code Pro', monospace;font-weight: bold;color:  #dc3545;background:black;">DECODE</button>
+                </div>
+            </div>
+            
+        </div>
+        
+        
+        <div id="hiderow" class="row">
+            <div class="col-md-4" style="padding-bottom: 40px">
+                <div style="height: 100px; color: #dc3545;font-family: 'Source Code Pro', monospace;">
+                    Cover image:<input type="file" id="cover"/><br>
+                </div>
+
+                <canvas style="border: solid 3px #dc3545;font-family: 'Source Code Pro', monospace;" width="300" height="300" id="covercanvas"></canvas>
+            </div>
+
+            <div class="col-md-4" style="padding-bottom: 40px;">
+                <div style="height: 100px; color: #dc3545;font-family: 'Source Code Pro', monospace;">
+                    Secret image:<input type="file" id="secret"/><br>
+                </div>
+
+                <canvas style="border: solid 3px #dc3545;font-family: 'Source Code Pro', monospace;" width="300" height="300" id="secretcanvas"></canvas>
+            </div>
+
+            <div class="col-md-4" style="padding-bottom: 40px">
+                <div style="height: 100px; color: #dc3545;font-family: 'Source Code Pro', monospace;">
+                    Hidden bits:
+                    <span id="bitsdisplay">1</span>
+                    <div id="bits" style="margin-top: 10px; width: 300px"></div>
+                    <button class="btn btn-default" style="margin-top: 10px;color: #dc3545;font-family: 'Source Code Pro', monospace;" onclick="my">Download</button>
+
+                </div>
+
+                <canvas style="border: solid 3px #dc3545" width="300" height="300" id="outputcanvas"></canvas>
+            </div>
+        </div>
+
+
+        <div id="unhiderow" class="row">
+            <div class="col-md-4" style="padding-bottom: 40px">
+                <div style="height: 100px; color: #dc3545;font-family: 'Source Code Pro', monospace;">
+                    Image:<input type="file" id="stegimage"/><br>  
+                </div>
+                <canvas style="border: solid 3px #dc3545" width="300" height="300" id="stegcanvas"></canvas>
+            </div>
+
+            <div class="col-md-4" style="padding-bottom: 40px">
+                <div style="height: 100px;color: #dc3545;font-family: 'Source Code Pro', monospace;">
+                    Hidden bits:
+                    <span id="unhidebitsdisplay" style="color: #dc3545;font-family: 'Source Code Pro', monospace;">1</span>
+                    <div id="bits2" style="margin-top: 10px; width: 300px"></div>
+                    <a href="id='stegimage'" download=><button class="btn btn-default" style="margin-top: 5px;color: #dc3545;font-family: 'Source Code Pro', monospace;" id="downloadbutton2">Download</button></a>
+                    
+                </div>
+                <canvas style="border: solid 3px #dc3545;" width="300" height="300" id="hiddencanvas"></canvas>
+            </div>
+        </div>
+
+
+
+
+
+
+
+    </section>
+
+    <div class="footer-basic" style="background: rgba(0,0,0,0);">
+        <footer>
+            
+          <div class="credits">
+            <span></span>
+            <span class="current-year"></span> Made with 
+                <i style="color: red" class="fa fa-heart heart"
+              alt="love">
+                </i> 
+                by 
+                <a href="https://github.com/do0m0P" target="_blank"> Aayush Jansari
+                </a> and <a href="https://github.com/Yashhh522" target="_blank"> Yash Gohil
+                </a>
+          </div>
+        
+        </footer>
+    </div>
+    <script type="text/javascript" src="jquery-2.2.3.min.js"></script>
+    
+
+    <script type="text/javascript" src="jquery-ui.min.js"></script>
+    <script src="bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="hideimage.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="assets/js/Footer---Made-with-love.js"></script>
+    
+        
+</body>
+
+</html>

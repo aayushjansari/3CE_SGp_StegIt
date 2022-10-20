@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Stegit</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alata&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bangers&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro&amp;display=swap">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Dark-footer-with-social-media-icons.css">
+    <link rel="stylesheet" href="assets/css/Footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/Team-Clean.css">
+</head>
+
+<body style="background: url(&quot;assets/img/wp4472818-8192x8192-wallpapers.jpg&quot;);">
+    <nav class="navbar navbar-dark navbar-expand-md bg-dark bg-gradient" id="app-navbar">
+        <div class="container-fluid"><a class="navbar-brand" href="#"><i class="icon ion-ios-infinite" id="brand-logo"></i></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item" style="margin-right: 10px;"><a class="nav-link active" href="index.html" style="font-family: 'Source Code Pro', monospace;">StegIt</a></li>
+                    <li class="nav-item" style="margin-right: 10px;"><a class="nav-link active" href="#How-It-Works" style="font-family: 'Source Code Pro', monospace;"> How It Works</a>
+</li>
+                    <li class="nav-item" style="margin-right: 15px;"><a class="nav-link active" href="#team" style="font-family: 'Source Code Pro', monospace;">The Team</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section id="Steg" style="border-color: rgba(33,37,41,0);background: rgba(0,0,0,0);">
+        <h1 class="text-center" data-aos="fade-up" data-aos-duration="700" data-aos-once="true" id="subtitle" style="color: var(--bs-white);font-family: 'Source Code Pro', monospace;font-size: 54.112px;margin-bottom: 20px;font-weight: bold;letter-spacing: 6px;">StegIt</h1>
+        <p style="text-align: center;color: rgb(255,255,255);font-family: 'Source Code Pro', monospace;">StegIt is an online platform to implement steganography on an image.<br>This also performs layer analysis on image.<br>The platform supports the following images format: .png<br><br>Do you ever share images containing personal or confidential information?<br>StegIt lets you share information in images and protect your privacy!<br>Stop worrying about what other people see and start using our powerful tools for steganography.<br><br></p>
+    </section>
+    <section class="highlight-clean" style="background: rgba(0,0,0,0);">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center"></h2>
+                <p class="text-center" style="margin-top: 0px;font-family: 'Source Code Pro', monospace;color: var(--bs-gray-700);font-weight: bold;">Make a Choice<br></p>
+            </div>
+            <div class="buttons" style="text-align: center;"><a class="btn btn-primary" role="button" href="ImageInImage.html" style="background: var(--bs-red);color: #000000;font-family: 'Source Code Pro', monospace;font-weight: bold;margin-right: 10px;transform: scale(1);">Image In Image</a><a class="btn btn-primary" role="button" href="TextInImage.html" style="background: var(--bs-blue);color: black;font-family: 'Source Code Pro', monospace;font-weight: bold;margin-right: 10px;transform: scale(1);">Text In Image</a></div>
+        </div>
+    </section>
+    <section id="How-It-Works" style="margin-top: 250px;">
+        <h1 style="color: rgb(255,255,255);font-family: 'Source Code Pro', monospace;text-align: center;"><strong>How Steganography Works</strong></h1>
+        <p style="padding: 43px;color: var(--bs-white);text-align: left;font-family: 'Source Code Pro', monospace;"><br>Each channel (red, green, blue) of each pixel in an image is represented by an 8-bit value. To hide the secret image inside the cover image, we replace the&nbsp;n&nbsp;least significant bits of the cover pixel value with the same number of most significant bits from the secret pixel value. Example, using 3 hidden bits:<br><br><strong>Cover pixel: (167, 93, 27) == (10100111,&nbsp;01011101,&nbsp;00011011)&nbsp;&nbsp;&nbsp;&nbsp;</strong><br><strong>Secret pixel: (67, 200, 105) == (01000011,&nbsp;11001000,&nbsp;01101001)&nbsp;&nbsp;&nbsp;&nbsp;</strong><br><strong>Output pixel: (162, 94, 27) == (10100010, 01011110, 00011011)</strong><br><br>The output color is almost indistinguishable from the cover color, but now contains information to extract an approximation of the secret pixel value, which gets padded with 0 to fill in the missing bits, so <br>comes out to <br><br><strong>(64, 192, 96) == (01000000,&nbsp;11000000,&nbsp;01100000).</strong><br><br>Using a larger number of hidden bits results in a better quality hidden image, but makes it easier to tell that the hidden image is there. Play with the 'hidden bits' slider to see. There is an example on Wikipedia of a cat hidden in a picture of a tree. To do the example here, use the 'Unhide image' tool to select the 'Wikipedia tree' example, and set hidden bits to 2. All of the computation is performed in your browser in JavaScript. Be careful with larger images as it can be quite slow. Once you've hidden your secret image inside a cover image, send the output image to your accomplice. Your accomplice then uses the 'Unhide image' tool to recover the secret image.<br><br></p>
+    </section>
+    <section id="team" class="team-clean" style="--bs-body-bg: rgba(255,255,255,0);background: rgba(255,255,255,0);">
+        <div class="container" style="--bs-body-bg: rgba(255,255,255,0);">
+            <div class="intro">
+                <h2 class="text-center" style="color: var(--bs-white);font-size: 36.112px;">The Team </h2>
+                <p class="text-center"></p>
+            </div>
+            <div class="row people">
+                <div class="col-md-6 col-lg-4 offset-md-0 offset-lg-2 item"><img class="rounded-circle" src="assets/img/IMG_8449.jpg">
+                    <h3 class="name" style="color: var(--bs-white);font-family: 'Source Code Pro', monospace;">Aayush Jansari</h3>
+                    <p class="title" style="color: var(--bs-white);font-family: 'Source Code Pro', monospace;">21ce043</p>
+                </div>
+                <div class="col-md-6 col-lg-4 item"><img class="rounded-circle" src="assets/img/2.jpg" style="height: 160px;width: 160px;">
+                    <h3 class="name" style="color: var(--bs-white); font-family: 'Source Code Pro', monospace; margin-top: 28px;">Yash Gohil</h3>
+                    <p class="title" style="color: var(--bs-white);font-family: 'Source Code Pro', monospace;">21ce034</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="footer-basic" style="background: rgba(0,0,0,0);">
+        <footer>
+          <div class="credits" style="font-family: 'Source Code Pro', monospace;">
+            <span></span>
+            <span class="current-year"></span> Made with 
+                <i style="color: red" class="fa fa-heart heart"
+              alt="love">
+                </i> 
+                by 
+                <a href="https://github.com/do0m0P" target="_blank"> Aayush Jansari</a>
+                and
+                <a href="https://github.com/Yashhh522" target="_blank"> Yash Gohil
+                </a>
+          </div>
+</footer>
+        </footer>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="assets/js/Footer---Made-with-love.js"></script>
+</body>
+
+</html>
